@@ -17,7 +17,6 @@ let container = null;
 async function displayRandomRadio() {
   const today = new Date();
   const isBreizhDay = today.getDate() === 27 && today.getMonth() === 8; // septembre = 8
-
   let tag = 'pop';
   if (isBreizhDay) {
     const breizhTags = ['breton', 'breizh', 'celtic'];
@@ -63,3 +62,27 @@ async function displayRandomRadio() {
 }
 
 displayRandomRadio();
+
+// -------- Effet petites bières --------
+
+document.addEventListener('mousemove', e => {
+  if (Math.random() < 0.06) {  // 80% de chances de créer une bière
+    const beer = document.createElement('img');
+    beer.src = 'beer.png'; // Chemin vers ton image bière (à adapter)
+    beer.className = 'beer';
+    beer.style.position = 'absolute';
+    beer.style.width = '25px';
+    beer.style.height = '25px';
+    beer.style.left = (e.pageX - 12.5) + 'px';
+    beer.style.top = (e.pageY - 12.5) + 'px';
+    beer.style.pointerEvents = 'none';
+    beer.style.opacity = '1';
+    beer.style.transform = 'scale(1)';
+    beer.style.animation = 'fadeOut 5s forwards';
+    document.body.appendChild(beer);
+
+    setTimeout(() => {
+      beer.remove();
+    }, 5000);
+  }
+});

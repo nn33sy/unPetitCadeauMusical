@@ -5,16 +5,44 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Radio de la semaine</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 40px;
-      text-align: center;
+    @font-face {
+      font-family: 'OuvrieresAffamees';
+      src: url('fonts/fonte-weight/webfonts/Ouvrieres-affamees.woff2') format('woff2');
     }
+
+    body {
+      cursor: url('cursor.png') 32 32, auto;
+      font-family: 'OuvrieresAffamees', sans-serif;
+      font-size: 30px;
+      font-feature-settings: "liga" 1;
+      margin: 50px;
+      text-align: left;
+      background: #f4f4f4;
+    }
+
+    .beer {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      pointer-events: none;
+      opacity: 1;
+      transform: scale(1);
+      animation: fadeOut 5s forwards;
+    }
+
+    @keyframes fadeOut {
+      to {
+        opacity: 0;
+        transform: scale(0);
+      }
+    }
+
     img {
       margin: 20px 0;
       border-radius: 10px;
       max-width: 150px;
     }
+
     audio {
       margin-top: 20px;
       width: 80%;
@@ -28,7 +56,7 @@
   <div id="radio-container">
     <p>ATTEND LA RADIO ELLE ARRIVE !!</p>
   </div>
-<h1>Ceci est un petit cadeau pour toi pour ton anniversaire !</h1>
-  <script src="script.js"></script>
+  <h1>Ceci est un petit cadeau pour toi pour ton anniversaire !</h1>
+<script src="script.js"></script>
 </body>
 </html>
